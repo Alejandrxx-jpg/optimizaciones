@@ -28,10 +28,12 @@ El resultado se encontrará en la carpeta `dist`.
 ## Scripts de optimización
 
 Coloca tus scripts `.bat` o `.reg` en la carpeta `scripts`. Cada botón de la interfaz ejecuta uno de estos scripts.
+Puedes habilitar o deshabilitar scripts desde la sección **Configuración** mediante sencillas casillas de verificación.
 
 ## Licencias
 
-Las claves válidas se definen en el archivo `license.txt`. Cada licencia cuenta con **3 usos**. La aplicación guarda los usos restantes en la carpeta de datos de usuario de Electron. Cuando se agotan los usos, los botones de optimización se deshabilitan.
+Las claves válidas se definen en el archivo `license.txt`. Cada licencia cuenta con **3 usos**. La aplicación guarda los usos restantes de forma cifrada en la carpeta de datos de usuario de Electron. Cuando se agotan los usos, los botones de optimización se deshabilitan.
+Para restablecer la licencia accede a la sección **Licencia** y utiliza la opción *Reiniciar licencia*.
 
 ## Estructura del proyecto
 
@@ -41,4 +43,15 @@ Las claves válidas se definen en el archivo `license.txt`. Cada licencia cuenta
 
 ## Notas
 
-Este proyecto está preparado para futuras actualizaciones o suscripciones integrando nuevos módulos en `src` y la lógica correspondiente en `electron/main.js`.
+Este proyecto está preparado para futuras actualizaciones automáticas mediante `electron-updater` y para integrar pagos o suscripciones (por ejemplo con Stripe). En `electron/main.js` encontrarás comentarios que indican dónde incorporar dicha funcionalidad.
+
+## Preguntas frecuentes
+
+### ¿Cómo modifico la lista de scripts?
+Agrega o elimina archivos en la carpeta `scripts` y activa los que desees en la sección **Configuración**.
+
+### ¿Dónde se almacena la licencia?
+En la carpeta de usuario de Electron (`app.getPath('userData')`), dentro del archivo `.usage.enc` cifrado.
+
+### ¿Qué hacer si aparece un error al ejecutar un script?
+Consulta el archivo `log.txt` en la misma carpeta de usuario para obtener detalles y verificar que el script exista y tenga permisos de ejecución.

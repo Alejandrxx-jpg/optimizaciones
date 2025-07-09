@@ -26,5 +26,9 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-icons": "^5.5.0"
+    ,"framer-motion": "^10.16.4"
+    ,"lucide-react": "^0.370.0"
+    ,"electron-updater": "^6.1.7"
+    ,"pdfkit": "^0.13.0"
   }
 }
