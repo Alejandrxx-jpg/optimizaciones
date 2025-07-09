@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Sidebar from '../components/Sidebar';
 import Home from '../components/Home';
+import Config from '../components/Config';
+import LicenseInfo from '../components/LicenseInfo';
 import { LicenseContext } from '../utils/license';
 
 const App = () => {
@@ -25,13 +27,8 @@ const App = () => {
         <Sidebar current={section} onChange={setSection} />
         <div className="main">
           {section === 'Inicio' && <Home message={message} />}
-          {section === 'Licencia' && (
-            <div className="card">
-              <h2>Licencia</h2>
-              <p>Clave: {license.key}</p>
-              <p>Usos restantes: {license.uses}</p>
-            </div>
-          )}
+          {section === 'Licencia' && <LicenseInfo />}
+          {section === 'Configuración' && <Config />}
         </div>
       </div>
     </LicenseContext.Provider>
